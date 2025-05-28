@@ -3,8 +3,7 @@ import * as S from './styles'
 import { Produto } from '../../types/Produto'
 
 import cesta from '../../assets/cesta.png'
-import { paraReal } from '../Produto'
-
+import { paraReal } from '../components/Produto'
 type Props = {
   itensNoCarrinho: Produto[]
   favoritos: Produto[]
