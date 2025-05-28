@@ -7,7 +7,7 @@ export const api = createApi({
     baseUrl: 'https://fake-api-tau.vercel.app/api/ebac_sports/'
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query<Produto[], void>({
+    getProdutos: builder.query<Produto[], void>({
       query: () => 'produtos'
     })
   })

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
 import { GlobalStyle } from './styles'
 import { Provider } from 'react-redux'
 import { store } from './store'
+
+import { useGetProdutosQuery } from './services/api'
 
 export type Produto = {
   id: number
@@ -14,15 +16,13 @@ export type Produto = {
 }
 
 function App() {
-  const [produtos, setProdutos] = useState<Produto[]>([])
+  const { data: produtos, isLoading } = useGetProdutosQuery()
   const [carrinho, setCarrinho] = useState<Produto[]>([])
   const [favoritos, setFavoritos] = useState<Produto[]>([])
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/ebac_sports')
-      .then((res) => res.json())
-      .then((res) => setProdutos(res))
-  }, [])
+  if (isLoading) {
+    return <div>Carregando...</div>
+  }
 
   function adicionarAoCarrinho(produto: Produto) {
     if (carrinho.find((p) => p.id === produto.id)) {
