@@ -1,9 +1,10 @@
 import * as S from './styles'
 
-import { Produto } from '../../types/Produto'
-
+import { Produto } from '../../types/ProdutoTypes'
 import cesta from '../../assets/cesta.png'
-import { paraReal } from '../components/Produto'
+// Update the import path below to the correct location of paraReal
+import { paraReal } from '../Produto'
+
 type Props = {
   itensNoCarrinho: Produto[]
   favoritos: Produto[]

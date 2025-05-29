@@ -1,4 +1,4 @@
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Header from './components/Header'
 import Produtos from './containers/Produtos'
 import { GlobalStyle } from './styles'
@@ -6,8 +6,7 @@ import { useGetProdutosQuery } from './services/api'
 import { adicionar } from './store/reducers/carrinho'
 import { alternar } from './store/reducers/favoritos'
 import { RootState } from './store'
-import { Produto } from './types/Produto'
-import { store } from './store'
+import { Produto } from './types/ProdutoTypes'
 
 function App() {
   const dispatch = useDispatch()
@@ -28,7 +27,7 @@ function App() {
   }
 
   return (
-    <Provider store={store}>
+    <>
       <GlobalStyle />
       <div className="container">
         <Header favoritos={favoritos} itensNoCarrinho={carrinho} />
@@ -39,7 +38,7 @@ function App() {
           adicionarAoCarrinho={adicionarAoCarrinho}
         />
       </div>
-    </Provider>
+    </>
   )
 }
 
