@@ -41,3 +41,4 @@ const ProdutoComponent = ({
 }
 
 export default ProdutoComponent
+// alteração useSelector concluida

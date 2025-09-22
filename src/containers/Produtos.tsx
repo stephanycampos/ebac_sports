@@ -41,3 +41,4 @@ const ProdutosComponent = ({
 }
 
 export default ProdutosComponent
+// Redux Toolkit Query concluido
