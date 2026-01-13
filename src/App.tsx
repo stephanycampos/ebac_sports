@@ -5,11 +5,11 @@ import { GlobalStyle } from './styles'
 import { useGetProdutosQuery } from './services/api'
 import { adicionar } from './store/reducers/carrinho'
 import { alternar } from './store/reducers/favoritos'
-import { RootState } from './store'
+import { RootState, AppDispatch } from './store'
 import { Produto } from './types/ProdutoTypes'
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
   const { data: produtos, isLoading } = useGetProdutosQuery()
   const carrinho = useSelector((state: RootState) => state.carrinho.itens)
   const favoritos = useSelector((state: RootState) => state.favoritos.itens)
